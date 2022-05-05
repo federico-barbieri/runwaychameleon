@@ -1,0 +1,538 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 16px;
+}
+
+/* SCREEN */
+
+#screen{
+    
+    background-color: black;
+    width: 95%;
+    aspect-ratio: 16/9;
+    position: relative;
+    border: 5px solid black;
+    overflow: hidden;
+    margin: 1rem auto;
+}
+
+section{
+    display: block;
+}
+
+/* GAME */
+
+#game{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+div{
+    display: block;
+}
+
+/* GAME BACKGROUND */
+
+#game-background{
+    position: absolute;
+    width: 60%;
+    height: 100%;
+    margin: 0 auto;
+    left: 20%;
+    top: 5%;
+    background-image: url("assets/background/runway+screen.svg");
+    background-size: cover;
+    transform: scale(0.5);
+    display: none;
+}
+
+#column1{
+    position: absolute;
+    width: 20%;
+    height: 80%;
+    
+    left: -10%;
+    top: 20%;
+    background-image: url("assets/columns/column1.svg");
+    background-size: cover;
+    z-index: 10;
+}
+
+#column2{
+    position: absolute;
+    width: 20%;
+    height: 80%;
+    
+    right: -10%;
+    top: 20%;
+    background-image: url("assets/columns/column2.svg");
+    background-size: cover;
+    z-index: 10;
+}
+
+
+
+/* GAME SPRITES */
+
+
+/* containers */
+
+#bluegem-container, #pinkgem-container,
+#yellowgem-container, #blackgem-container,
+#blackgem2-container{
+    position: absolute;
+    width: 8.8%;
+    height: 11.1%;
+    aspect-ratio: 1/1;
+    
+}
+
+#bluegem-container{
+    left: 2%;
+    top: -10%;
+}
+
+#pinkgem-container{
+    left: 20%;
+    top: -10%;
+}
+
+#yellowgem-container{
+    left: 60%;
+    top: -10%;
+}
+
+#blackgem-container{
+    left: 80%;
+    top: -10%;
+
+}
+
+#blackgem2-container{
+    left: 50%;
+    top: -10%;
+}
+
+#chameleon-container{
+    position: absolute;
+    width: 25%;
+    height: 60%;
+    aspect-ratio: 1/1;
+    left: 40%;
+    top: 26%;
+    transform: scale(0.7);
+    z-index: 50;
+    display: none;
+}
+
+/* falling object class */ 
+
+.fallingDown{
+    animation-name: falling;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+/* sprites */
+
+#chameleon-sprite{
+    background-image: url("./assets/outfits/normal-outfit.svg"); 
+    background-size: cover; 
+    width: 100%; 
+    height: 100%; 
+}
+
+/* tongue world */
+
+#tongue-container{
+    position: absolute;
+    aspect-ratio: 1/1;
+    width: 100%; 
+    height: 10%;
+    right: 5.2%;
+    top: 40.2%;
+
+}
+
+#tongue{
+    background-image: url("./assets/tongue.svg"); 
+    background-size: cover;     
+    margin: 0rem auto;
+    width: 5%; 
+    height: 100%;  
+    display: none;
+    animation-name: tongy;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function:ease-out;
+    animation-direction: alternate;
+}
+
+@keyframes tongyy{
+    0% {transform: translate(0,0);}
+    100% {transform: translate(-0.5rem, 0.6rem)}
+    
+}
+
+/* other chameleons */ 
+
+#pink-chameleon-container{
+    position: absolute;
+    width: 25%;
+    height: 60%;
+    aspect-ratio: 1/1;
+    left: 40%;
+    top: 26%;
+    transform: scale(0.7);
+    z-index: 55;
+    display: none;
+}
+
+#pink-chameleon-sprite{
+    background-image: url("./assets/outfits/pink-outfit.svg"); 
+    background-size: cover; 
+    width: 100%; 
+    height: 100%; 
+    
+    
+}
+
+#yellow-chameleon-container{
+    position: absolute;
+    width: 25%;
+    height: 60%;
+    aspect-ratio: 1/1;
+    left: 40%;
+    top: 26%;
+    transform: scale(0.7);
+    z-index: 51;
+    display: none;
+}
+
+#yellow-chameleon-sprite{
+    background-image: url("./assets/outfits/yellow-outfit.svg"); 
+    background-size: cover; 
+    width: 100%; 
+    height: 100%; 
+    
+}
+
+#blue-chameleon-container{
+    position: absolute;
+    width: 25%;
+    height: 60%;
+    aspect-ratio: 1/1;
+    left: 40%;
+    top: 26%;
+    transform: scale(0.7);
+    z-index: 51;
+    display: none;
+}
+
+#blue-chameleon-sprite{
+    background-image: url("./assets/outfits/blue-outfit.svg"); 
+    background-size: cover; 
+    width: 100%; 
+    height: 100%; 
+    
+}
+
+#black-chameleon-container{
+    position: absolute;
+    width: 25%;
+    height: 60%;
+    aspect-ratio: 1/1;
+    left: 40%;
+    top: 26%;
+    transform: scale(0.7);
+    z-index: 53;
+    display: none;
+}
+
+#black-chameleon-sprite{
+    background-image: url("./assets/outfits/black-outfit.svg"); 
+    background-size: cover; 
+    width: 100%; 
+    height: 100%; 
+    
+}
+
+#bluegem-sprite{
+    background-image: url("./assets/gems/blue-gem.svg"); 
+    background-size: cover; 
+    width: 70%; 
+    height: 100%; 
+    transform: scale(0.7);
+}
+
+#pinkgem-sprite{
+    background-image: url("./assets/gems/pink-gem.svg"); 
+    background-size: cover; 
+    width: 70%; 
+    height: 100%; 
+    transform: scale(0.7);
+}
+
+#yellowgem-sprite{
+    background-image: url("./assets/gems/yellow-gem.svg"); 
+    background-size: cover; 
+    width: 70%; 
+    height: 100%; 
+    transform: scale(0.7);
+}
+
+#blackgem-sprite{
+    background-image: url("./assets/gems/black-gem.svg"); 
+    background-size: cover; 
+    width: 70%; 
+    height: 100%; 
+    transform: scale(0.7);
+}
+
+#blackgem2-sprite{
+    background-image: url("./assets/gems/black-gem.svg"); 
+    background-size: cover; 
+    width: 70%; 
+    height: 100%; 
+    transform: scale(0.7);
+}
+
+@keyframes falling {
+    100%{
+        transform: translateY(1000%);
+    }
+}
+
+
+/* game ui */
+
+#game-ui{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+/* score board */
+
+#score-board{
+    position: absolute;
+    background-image: url("./assets/score/score-board.svg"); 
+    background-size: cover; 
+    width: 100%; 
+    height: 56.8%;
+    transform: scale(0.1); 
+    left: -40%;
+    top: -20.5%;
+    display: block;
+}
+
+#score-board-counter{
+    position: absolute;
+    color: white;
+    width: 100%; 
+    height: 65.9%;
+    left: 68%;
+    top: 3%;
+    font-size: 28rem;
+    z-index: 100;
+    font-family: cortado, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* health board */
+
+#health-board{
+    position: absolute;
+    background-image: url("./assets/lives/3-lives.svg"); 
+    background-size: cover; 
+    width: 100%; 
+    height: 49.7%;
+    transform: scale(0.1); 
+    left: 40%;
+    top: -18%;
+    display: block;
+}
+
+/* time board */ 
+
+#time-board{
+    position: absolute;
+    background-image: url("./assets/time/time-board.svg"); 
+    background-size: cover; 
+    width: 100%; 
+    height: 65.9%;
+    transform: scale(0.1); 
+    left: 0%;
+    top: -25%;
+    display: block;
+}
+
+#time-board-counter{
+    position: absolute;
+    color: white;
+    width: 100%; 
+    height: 65.9%;
+    left: 65%;
+    top: 5%;
+    font-size: 28rem;
+    z-index: 100;
+    font-family: cortado, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    display: block;
+}
+
+
+/* title screen */
+
+#title-screen{
+    background-image: url("./assets/maintitle/title2.svg"); 
+    background-size: cover; 
+    width: 100%; 
+    height: 91%;
+    transform: scale(0.4); 
+    margin: 0rem auto 0 auto;
+    display: block;
+
+}
+
+#play-btn-container{
+    position: absolute;
+    aspect-ratio: 1/1;
+    width: 20%; 
+    height: 10%;
+    top: 70%;
+    left: 30%;
+    
+}
+
+#play-btn{
+    background-image: url("./assets/maintitle/play-btn.svg"); 
+    background-size: cover;     
+    margin: 0rem auto;
+
+    width: 80%; 
+    height: 100%;
+}
+
+#rules-btn-container{
+    position: absolute;
+    aspect-ratio: 1/1;
+    width: 20%; 
+    height: 10%;
+    top: 70%;
+    left: 50%;
+
+}
+
+#rules-btn{
+    background-image: url("./assets/maintitle/rules-btn.svg"); 
+    background-size: cover;     
+    margin: 0rem auto;
+
+    width: 80%; 
+    height: 100%;   
+}
+
+/* instructions */
+
+#instructions{
+    background-image: url("./assets/maintitle/how-to.svg"); 
+    background-size: cover; 
+    width: 100%; 
+    height: 80%;
+    transform: scale(0.5); 
+    margin: 0rem auto 0 auto;
+    display: none;
+}
+
+#back-btn-container{
+    position: absolute;
+    aspect-ratio: 1/1;
+    width: 20%; 
+    height: 10%;
+    left: 38%;
+    top: 70%;
+    display: none;
+}
+
+#back-btn{
+    background-image: url("./assets/maintitle/back.svg"); 
+    background-size: cover;     
+    margin: 0rem auto;
+    width: 60%; 
+    height: 60%;  
+    border: 1px solid white;
+    padding: 2rem 2rem;
+}
+
+/* running out of time */
+
+#game-over{
+    position: absolute;
+    background-image: url("./assets/gameOver/lackOfTime/game-over-time.svg"); 
+    background-size: cover; 
+    width: 84%; 
+    height: 100%;
+    transform: scale(0.3); 
+    margin: 0rem auto 0 auto;
+    top: 0%;
+    left: 7%;
+    display: none;
+}
+
+#try-again-btn{
+    position: absolute;
+    background-image: url("./assets/gameOver/lackOfTime/try-again-btn.svg"); 
+    background-size: cover; 
+    width: 100%; 
+    height: 50%;
+    transform: scale(0.1); 
+    margin: 0rem auto 0 auto;
+    top: 50%;
+    left: -0.8%;
+    display: none;
+}
+
+.invisibility{
+    display: none;
+}
+
+/* level complete */ 
+
+#level-complete{
+    position: absolute;
+    background-image: url("./assets/win/you-win.svg"); 
+    background-size: cover; 
+    width: 84%; 
+    height: 100%;
+    transform: scale(0.3); 
+    margin: 0rem auto 0 auto;
+    top: 0%;
+    left: 8%;
+    display: none;  
+}
+
+#play-again-btn{
+    position: absolute;
+    background-image: url("./assets/win/play-again-btn.svg"); 
+    background-size: cover; 
+    width: 100%; 
+    height: 50%;
+    transform: scale(0.1); 
+    margin: 0rem auto 0 auto;
+    top: 48%;
+    left: -0.5%;
+    display: none;
+}
+
+
+
