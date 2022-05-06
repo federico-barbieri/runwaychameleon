@@ -36,18 +36,142 @@ div{
     display: block;
 }
 
+/* stars */
+
+@keyframes brightStar{
+    0% {opacity: 30%;}
+    100% {opacity: 60%; filter: drop-shadow(6px 6px 10px white);}
+  }
+
+#star1, #star2, #star3, #star4, #star5,
+#star6, #star7, #star8, #star9, #star10{
+    position: absolute;
+    background: white;
+    width: 0.3rem;
+    height: 0.3rem;
+    border-radius: 50%;
+    z-index: 100;
+}
+
+#star1{
+    left: 10%;
+    top: 40%;
+    animation-name: brightStar;
+    animation-duration: 0.4s;
+    animation-direction: alternate-reverse;
+    animation-iteration-count: infinite;
+}
+
+#star2{
+    left: 80%;
+    top: 70%;
+    animation-name: brightStar;
+    animation-duration: 0.4s;
+    animation-direction: alternate-reverse;
+    animation-iteration-count: infinite;
+}
+
+#star3{
+    left: 50%;
+    top: 20%;
+    animation-name: brightStar;
+    animation-duration: 0.4s;
+    animation-direction: alternate-reverse;
+    animation-iteration-count: infinite;
+}
+
+#star4{
+    left: 30%;
+    top: 40%;
+    animation-name: brightStar;
+    animation-duration: 0.4s;
+    animation-direction: alternate-reverse;
+    animation-iteration-count: infinite;
+}
+
+#star5{
+    left: 10%;
+    top: 40%;
+    animation-name: brightStar;
+    animation-duration: 0.4s;
+    animation-direction: alternate-reverse;
+    animation-iteration-count: infinite;
+}
+
+#star6{
+    left: 10%;
+    top: 60%;
+    animation-name: brightStar;
+    animation-duration: 0.4s;
+    animation-direction: alternate-reverse;
+    animation-iteration-count: infinite;
+}
+
+#star7{
+    left: 85%;
+    top: 90%;
+    animation-name: brightStar;
+    animation-duration: 0.4s;
+    animation-direction: alternate-reverse;
+    animation-iteration-count: infinite;
+}
+
+#star8{
+    left: 10%;
+    top: 40%;
+    animation-name: brightStar;
+    animation-duration: 0.4s;
+    animation-direction: alternate-reverse;
+    animation-iteration-count: infinite;
+}
+
+#star9{
+    left: 10%;
+    top: 40%;
+    animation-name: brightStar;
+    animation-duration: 0.4s;
+    animation-direction: alternate-reverse;
+    animation-iteration-count: infinite;
+}
+
+#star10{
+    left: 10%;
+    top: 40%;
+    animation-name: brightStar;
+    animation-duration: 0.4s;
+    animation-direction: alternate-reverse;
+    animation-iteration-count: infinite;
+}
+
+
+
+
+
 /* GAME BACKGROUND */
 
 #game-background{
     position: absolute;
     width: 60%;
-    height: 100%;
+    height: 80%;
     margin: 0 auto;
     left: 20%;
     top: 5%;
-    background-image: url("assets/background/runway+screen.svg");
+    background-image: url("assets/chamPics/cham1.jpg");
     background-size: cover;
-    transform: scale(0.5);
+    transform: scale(0.7);
+    display: none;
+}
+
+#game-runway{
+    position: absolute;
+    width: 100%;
+    height: 91%;
+    margin: 0 auto;
+    left: 0%;
+    top: 41%;
+    background-image: url("assets/background/runway.svg");
+    background-size: cover;
+    transform: scale(0.3);
     display: none;
 }
 
@@ -120,11 +244,11 @@ div{
 
 #chameleon-container{
     position: absolute;
-    width: 25%;
-    height: 60%;
+    width: 30%;
+    height: 68%;
     aspect-ratio: 1/1;
     left: 40%;
-    top: 26%;
+    top: 37%;
     transform: scale(0.7);
     z-index: 50;
     display: none;
@@ -184,11 +308,11 @@ div{
 
 #pink-chameleon-container{
     position: absolute;
-    width: 25%;
-    height: 60%;
+    width: 30%;
+    height: 68%;
     aspect-ratio: 1/1;
     left: 40%;
-    top: 26%;
+    top: 37%;
     transform: scale(0.7);
     z-index: 55;
     display: none;
@@ -205,11 +329,11 @@ div{
 
 #yellow-chameleon-container{
     position: absolute;
-    width: 25%;
-    height: 60%;
+    width: 30%;
+    height: 68%;
     aspect-ratio: 1/1;
     left: 40%;
-    top: 26%;
+    top: 37%;
     transform: scale(0.7);
     z-index: 51;
     display: none;
@@ -225,11 +349,11 @@ div{
 
 #blue-chameleon-container{
     position: absolute;
-    width: 25%;
-    height: 60%;
+    width: 30%;
+    height: 68%;
     aspect-ratio: 1/1;
     left: 40%;
-    top: 26%;
+    top: 37%;
     transform: scale(0.7);
     z-index: 51;
     display: none;
@@ -245,11 +369,11 @@ div{
 
 #black-chameleon-container{
     position: absolute;
-    width: 25%;
-    height: 60%;
+    width: 30%;
+    height: 68%;
     aspect-ratio: 1/1;
     left: 40%;
-    top: 26%;
+    top: 37%;
     transform: scale(0.7);
     z-index: 53;
     display: none;
@@ -326,10 +450,10 @@ div{
     background-image: url("./assets/score/score-board.svg"); 
     background-size: cover; 
     width: 100%; 
-    height: 56.8%;
-    transform: scale(0.1); 
-    left: -40%;
-    top: -20.5%;
+    height: 55%;
+    transform: scale(0.08); 
+    left: -42%;
+    top: -18%;
     display: block;
 }
 
@@ -338,7 +462,7 @@ div{
     color: white;
     width: 100%; 
     height: 65.9%;
-    left: 68%;
+    left: 110%;
     top: 3%;
     font-size: 28rem;
     z-index: 100;
@@ -351,13 +475,13 @@ div{
 
 #health-board{
     position: absolute;
-    background-image: url("./assets/lives/3-lives.svg"); 
+    background-image: url("./assets/lives/3lives.svg"); 
     background-size: cover; 
     width: 100%; 
     height: 49.7%;
     transform: scale(0.1); 
     left: 40%;
-    top: -18%;
+    top: -15%;
     display: block;
 }
 
@@ -369,9 +493,9 @@ div{
     background-size: cover; 
     width: 100%; 
     height: 65.9%;
-    transform: scale(0.1); 
-    left: 0%;
-    top: -25%;
+    transform: scale(0.08); 
+    left: -5%;
+    top: -23%;
     display: block;
 }
 
@@ -380,7 +504,7 @@ div{
     color: white;
     width: 100%; 
     height: 65.9%;
-    left: 65%;
+    left: 110%;
     top: 5%;
     font-size: 28rem;
     z-index: 100;
@@ -388,6 +512,7 @@ div{
     font-weight: 400;
     font-style: normal;
     display: block;
+    
 }
 
 
@@ -419,8 +544,8 @@ div{
     background-size: cover;     
     margin: 0rem auto;
 
-    width: 80%; 
-    height: 100%;
+    width: 50%; 
+    height: 64%;  
 }
 
 #rules-btn-container{
@@ -438,8 +563,8 @@ div{
     background-size: cover;     
     margin: 0rem auto;
 
-    width: 80%; 
-    height: 100%;   
+    width: 50%; 
+    height: 54%;   
 }
 
 /* instructions */
@@ -468,9 +593,9 @@ div{
     background-image: url("./assets/maintitle/back.svg"); 
     background-size: cover;     
     margin: 0rem auto;
-    width: 60%; 
+    width: 54%; 
     height: 60%;  
-    border: 1px solid white;
+
     padding: 2rem 2rem;
 }
 
@@ -494,10 +619,10 @@ div{
     background-image: url("./assets/gameOver/lackOfTime/try-again-btn.svg"); 
     background-size: cover; 
     width: 100%; 
-    height: 50%;
-    transform: scale(0.1); 
+    height: 34%;
+    transform: scale(0.2); 
     margin: 0rem auto 0 auto;
-    top: 50%;
+    top: 60%;
     left: -0.8%;
     display: none;
 }
@@ -526,10 +651,10 @@ div{
     background-image: url("./assets/win/play-again-btn.svg"); 
     background-size: cover; 
     width: 100%; 
-    height: 50%;
-    transform: scale(0.1); 
+    height: 30%;
+    transform: scale(0.15); 
     margin: 0rem auto 0 auto;
-    top: 48%;
+    top: 60%;
     left: -0.5%;
     display: none;
 }

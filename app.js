@@ -50,7 +50,7 @@ function randomNum(){
 
     // change the pink gem's position randomly 
 
-    
+
     pinkGem.style.left = pinkRandom + "%";
 
     
@@ -151,11 +151,11 @@ blackGem.addEventListener('click', () =>{
   livesLeft--;
   
   if (livesLeft == 2){
-    livesPic.style.backgroundImage = 'url("./assets/lives/2-lives.svg")';
+    livesPic.style.backgroundImage = 'url("./assets/lives/2lives.svg")';
   } else if (livesLeft == 1){
-    livesPic.style.backgroundImage = 'url("./assets/lives/1-live.svg")';
+    livesPic.style.backgroundImage = 'url("./assets/lives/1lives.svg")';
   } else if (livesLeft == 0){
-    livesPic.style.backgroundImage = 'url("./assets/lives/dead.svg")';
+    livesPic.style.backgroundImage = 'url("./assets/lives/0lives.svg")';
     gameOver();
   }
 
@@ -170,11 +170,11 @@ blackGem2.addEventListener('click', () =>{
   livesLeft--;
 
   if (livesLeft == 2){
-    livesPic.style.backgroundImage = 'url("./assets/lives/2-lives.svg")';
+    livesPic.style.backgroundImage = 'url("./assets/lives/2lives.svg")';
   } else if (livesLeft == 1){
-    livesPic.style.backgroundImage = 'url("./assets/lives/1-live.svg")';
+    livesPic.style.backgroundImage = 'url("./assets/lives/1lives.svg")';
   } else if (livesLeft == 0){
-    livesPic.style.backgroundImage = 'url("./assets/lives/dead.svg")';
+    livesPic.style.backgroundImage = 'url("./assets/lives/0lives.svg")';
     gameOver();
   }
 })
@@ -190,6 +190,8 @@ let livesPic = document.querySelector('#health-board');
 // game background 
 
 let gameBackground = document.querySelector('#game-background');
+
+let gameRunway = document.querySelector('#game-runway');
 
 
 // play and rules btns 
@@ -230,21 +232,28 @@ let timeSpan = document.querySelector('#time-board-counter');
 
 let gameDuration = 30;
 
-// did i win function 
 
-function didIWin(){
-  if (points == 5){
-    youWin();
-  }
+// randomly pick the background chameleon image 
+
+let chameleonPictures = ["cham1.jpg", "cham2.jpg", "cham3.jpg", "cham4.jpg" ]
+
+function randomCham(){
+  let randyChandy = Math.floor(Math.random() * 3);
+  gameBackground.style.backgroundImage = 
+  `url("./assets/chamPics/${chameleonPictures[randyChandy]}")`;
+  console.log(chameleonPictures[randyChandy]);
 }
+
+// timeout to print time every second
 
 function myTimer(){
 
   if (gameDuration >= 0 && points !== 5 && livesLeft !== 0){
     setTimeout(printTime, 1000);
+    setTimeout(randomCham, 3000);
     
-  } else if (gameDuration >= 0 && points == 5 && livesLeft !== 0){
-    didIWin();
+  } else if (gameDuration >= 0 && points > 4 && livesLeft !== 0){
+    youWin();
   }
   else{
     gameOver();
@@ -275,6 +284,7 @@ const startGame = () =>{
   myTimer();
   genericChameleon.style.display = "block";
   gameBackground.style.display = "block";
+  gameRunway.style.display = "block";
   pinkGem.classList.add('fallingDown');
   yellowGem.classList.add('fallingDown');
   blueGem.classList.add('fallingDown');
@@ -304,6 +314,7 @@ function gameOver(){
     blueChameleon.style.display = "none";
 
     gameBackground.style.display = "none";
+    gameRunway.style.display = "none";
 
         // remove effect of falling down for gems
 
@@ -334,6 +345,7 @@ function gameOver(){
         blueChameleon.style.display = "none";
     
         gameBackground.style.display = "none";
+        gameRunway.style.display = "none";
 
     pinkGem.classList.remove('fallingDown');
     yellowGem.classList.remove('fallingDown');
@@ -361,7 +373,7 @@ tryAgainBtn.addEventListener('click', () => {
 
   // reset lives both in points and in images
   livesLeft = 3;
-  livesPic.style.backgroundImage = 'url("./assets/lives/3-lives.svg")';
+  livesPic.style.backgroundImage = 'url("./assets/lives/3lives.svg")';
 
   startGame();
 
@@ -380,8 +392,8 @@ let playAgainBtn = document.querySelector('#play-again-btn');
 
 function youWin(){
 
-  levelComplete.style.display = "block"
-  playAgainBtn.style.display = "block";
+    levelComplete.style.display = "block"
+    playAgainBtn.style.display = "block";
 
 
     blackChameleon.style.display = "none";
@@ -397,6 +409,7 @@ function youWin(){
     blackGem2.classList.remove('fallingDown');   
 
     gameBackground.style.display = "none";
+    gameRunway.style.display = "none";
 
 }
 
@@ -413,7 +426,7 @@ playAgainBtn.addEventListener('click', () => {
   // reset lives 
 
   livesLeft = 3;
-  livesPic.style.backgroundImage = 'url("./assets/lives/3-lives.svg")';
+  livesPic.style.backgroundImage = 'url("./assets/lives/3lives.svg")';
 
   // display none to "you win" titles 
 
@@ -422,3 +435,5 @@ playAgainBtn.addEventListener('click', () => {
 
   startGame();
 })
+
+
