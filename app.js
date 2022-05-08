@@ -250,7 +250,7 @@ function myTimer(){
 
   if (gameDuration >= 0 && points !== 5 && livesLeft !== 0){
     setTimeout(printTime, 1000);
-    setTimeout(randomCham, 3000);
+    //setTimeout(randomCham, 3000);
     
   } else if (gameDuration >= 0 && points > 4 && livesLeft !== 0){
     youWin();
