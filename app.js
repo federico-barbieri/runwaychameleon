@@ -1,33 +1,3 @@
-
-// grab the tongue element
-
-let tongue = document.querySelector('#tongue-container');
-
-
-// can the tongue go to the gem when you click on it? WORK ON THIS
-
-
-        // function that gets the position WORK ON THIS
-
-        function getOffset(el) {
-            const rect = el.getBoundingClientRect();
-            return {
-              left: rect.left + window.scrollX,
-              top: rect.top + window.scrollY
-            };
-          }
-
-          // function that gets the position of the mouse
-
-          function printMousePos(event) {
-            console.log(`x is ${event.clientX} and y is ${event.clientY}`);
-            
-          }
-          
-          document.addEventListener("click", printMousePos);
-
-
-
 // gems
 
           
@@ -436,4 +406,8 @@ playAgainBtn.addEventListener('click', () => {
   startGame();
 })
 
-
+window.addEventListener('load', (event) => {
+  titleScreen.style.display = "block";
+  playBtn.style.display = "block";
+  rulesBtn.style.display = "block";
+});
